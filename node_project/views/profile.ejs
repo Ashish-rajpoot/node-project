@@ -1,0 +1,55 @@
+<%- include ('./header')%>
+
+
+
+<!-- Profarma to signup and login -->
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-5">
+            <h3> Change Profile!</h3>
+            <%- include ('./messages/message.ejs') %>
+            <form method="POST" action="/changeprofile" autocomplete="off">
+                <div class="col-lg-12">
+                    <label>Name</label>
+                    <input name="username" value="<%=user.username%>" class="form-control">
+                </div>
+                <div class="col-lg-12">
+                    <label>Email Id</label>
+                    <input name="email" value="<%=user.email%>" class="form-control">
+                </div>
+                <div class="col-lg-12">
+                    <label></label>
+                    <button type="submit" class="btn-primary form-control">Change</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-5">
+            <h3> Change password!</h3>
+            <%- include ('./messages/message.ejs') %>
+            <form method="POST" action="/profile/:id" autocomplete="off">
+
+                <div class="col-lg-12">
+                    <label>Old Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div class="col-lg-12">
+                    <label for="password">Change Password</label>
+                    <input type="password" name="npassword" class="form-control" p>
+                </div>
+                <div class="col-lg-12">
+                    <label for="Confirm password">Confirm Password</label>
+                    <input type="password" name="cnpassword" class="form-control">
+                </div>
+                <div class="col-lg-12">
+                    <label></label>
+                    <button type="submit" class="btn-primary form-control">Change</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include ('./footer')%>

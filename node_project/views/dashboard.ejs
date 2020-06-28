@@ -1,0 +1,44 @@
+<%- include ('./header')%>
+
+
+<div class="container ">
+    <div class="row">
+        <div class="col-lg">
+            <h3> Welcome to Dashboard , <%= user.username%> </h3>
+            <%- include ('./messages/message.ejs') %>
+            <hr class="w-75">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Cover Photo</th>
+                <th>Course Name</th>
+                <th>Catogery</th>
+                <th>Duration</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% doc.forEach(function(doc,index){ %>
+            <tr>
+                <td><%= index+1%></td>
+                <td><img src="<%=doc.file%>" width="90px" height="50px"></td>
+                <td><%= doc.name%></td>
+                <td><%= doc.type%></td>
+                <td><%= doc.duration%></td>
+                <td>
+                    <a class="btn btn-primary" href="/updatecourse/<%= doc._id%>" role="button">Edit</a>
+                    <a class="btn btn-danger" href="/delete/<%= doc._id%>" role="button">Delete</a>
+                </td>
+            </tr>
+            <%})%>
+        </tbody>
+    </table>
+</div>
+
+
+<%- include ('./footer')%>
